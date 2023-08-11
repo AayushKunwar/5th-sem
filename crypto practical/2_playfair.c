@@ -11,6 +11,10 @@ char mat[5][5];
 int alp['z'+1] = {0};
 int cur_key = 0;
 
+int mod5(int num){
+	return ((num%5)+5)%5;
+}
+
 char get_char(char key[]){
 	if(cur_key>=strlen(key)){
 		return ' ';
@@ -50,12 +54,12 @@ void encr(char a, char b, int pos[]){
 }
 void decr(char a, char b, int pos[]){
 	if(pos[0]==pos[2]){
-		a = mat[pos[0]][(pos[1]-1)%5];
-		b = mat[pos[0]][(pos[3]-1)%5];
+		a = mat[pos[0]][mod5(pos[1]-1)];
+		b = mat[pos[0]][mod5(pos[3]-1)];
 	}
 	else if(pos[1]==pos[3]){
-		a = mat[(pos[0]-1)%5][pos[1]];
-		b = mat[(pos[2]-1)%5][pos[1]];
+		a = mat[mod5(pos[0]-1)][pos[1]];
+		b = mat[mod5(pos[2]-1)][pos[1]];
 	}
 	else{
 		a = mat[pos[3]][pos[0]];
