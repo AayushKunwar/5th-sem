@@ -6,6 +6,33 @@
 //globabl variable because i cant pass 2d array in func :(
 char mat[5][5];
 
+//init the unique alphabet arr
+//int alp[26] = {0}; with this you have to minus the 'a' from each access
+int alp['z'+1] = {0};
+int cur_key = 0;
+
+char get_char(char key[]){
+	if(cur_key>=strlen(key)){
+		return ' ';
+	}
+	// to handle repetition in the key
+	while(alp[key[cur_key]] == 1){
+		cur_key++;
+	}
+	if(cur_key>=strlen(key)){
+		return ' ';
+	}
+	cur_key++;
+	if(key[cur_key-1] == 'i' || key[cur_key-1] == 'j'){
+		alp['i'] = 1;
+		alp['j'] = 1;
+		return 'i';
+	}else{
+		alp[key[cur_key-1]] = 1;
+		return key[cur_key-1];
+	}				
+}
+
 void encr(char a, char b, int pos[]){
 	if(pos[0]==pos[2]){
 		a = mat[pos[0]][(pos[1]+1)%5];
@@ -19,7 +46,7 @@ void encr(char a, char b, int pos[]){
 		a = mat[pos[0]][pos[3]];
 		b = mat[pos[2]][pos[1]];
 	}
-	printf("%c%c ",a,b);
+	printf("%c%c",a,b);
 }
 void decr(char a, char b, int pos[]){
 	if(pos[0]==pos[2]){
@@ -32,13 +59,12 @@ void decr(char a, char b, int pos[]){
 	}
 	else{
 		a = mat[pos[3]][pos[0]];
-		b = mat[pos[1]][pos[2]];
+		b = mat[pos[2]][pos[1]];
 	}
-	printf("%c%c ",a,b);
+	printf("%c%c",a,b);
 }
 
 int main(){
-	
 	char key[MAX], input_str[MAX];
 	// this to pass the pos 
 	int pos[4];
@@ -47,33 +73,14 @@ int main(){
 	printf("Enter the key: ");
 	scanf("%s",&key);
 	
-	//init the alphabet arr
-	//int alp[26] = {0}; with this you have to minus the 'a' from each access
-	int alp['z'+1] = {0};
-	
-	int cur_key = 0;
 	int cur_alp = 'a';
 	
 	for(int i=0; i<5; i++){
 		for (int j=0; j<5; j++){
 			// first put all the key into table
-			if(cur_key<strlen(key)){
-				// to handle repetition in the key
-				while(alp[key[cur_key]] == 1){
-					cur_key++;
-				}
-				if(cur_key < strlen(key)){
-
-					if(key[cur_key] == 'i' || key[cur_key] == 'j'){
-						alp['i'] = 1;
-						alp['j'] = 1;
-						mat[i][j] = 'i';
-					}else{
-						mat[i][j] = key[cur_key];
-						alp[key[cur_key]] = 1;
-					}				
-					cur_key++;
-				}
+			char temp = get_char(key);
+			if(temp != ' '){
+				mat[i][j] = temp;
 			}
 			// now fill the table with rest of the alphabet
 			else{
