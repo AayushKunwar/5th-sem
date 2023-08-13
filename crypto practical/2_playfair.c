@@ -74,7 +74,6 @@ int main(){
 	// this to pass the pos 
 	int pos[4];
 	
-	printf("\n");
 	printf("Enter the key: ");
 	scanf("%s",&key);
 	
@@ -112,7 +111,7 @@ int main(){
 	// i is col, j is row
 	for(int i=0; i<5; i++){
 		for (int j=0; j<5; j++){
-			printf("%c ", mat[i][j],i,j);
+			printf("%c ", mat[i][j]);
 		}
 		printf("\n");
 	}
@@ -137,6 +136,7 @@ int main(){
 			b='x';
 		}
 		// lookup a and b;
+		// put the row and col of a and b in pos array in sequence
 		for(int col=0; col<5; col++){
 			for(int row=0; row<5; row++){
 				if(mat[row][col] == a){
@@ -149,7 +149,8 @@ int main(){
 				}
 			}
 		}
-
+		
+		// not necessary to pass a,b in encr and decr
 		if(choice == 1) encr(a,b,pos);
 		else decr(a,b,pos);
 	}	
