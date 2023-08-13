@@ -10,11 +10,12 @@ void encr(char input[], int rails, int pos[]){
 		for(int j=0; j<strlen(input);j++){ // loop through the string	
 			if(pos[j]==i){
 				output[currPos] = input[j]; 
-				currPos++;
+				//printf("i: %d = %c and %d %c\n",j,input[j],currPos,output[currPos]);
+				currPos++;	
 			}
 		}
 	}
-	
+	output[currPos] = '\0';
 	printf("Output: %s",output);
 }
 
@@ -31,6 +32,7 @@ void decr(char input[], int rails, int pos[]){
 			}
 		}
 	}
+	output[currPos] = '\0';
 	printf("Output: %s",output);
 }
 
@@ -43,12 +45,13 @@ int main(){
 	printf("Enter the no of rails: ");
 	scanf("%d",&rails);
 	
-	printf("Press 1 to encrypt, 2 to decrupt: ");
+	printf("Press 1 to encrypt, 2 to decrypt: ");
 	scanf("%d",&choice);
 	
 	int currPos = rails;
 	int pos[15];
 	int toIncr = -1;
+	
 	for(int i=0; i<strlen(input); i++){
 		pos[i] = currPos;
 		currPos += toIncr;
@@ -59,6 +62,9 @@ int main(){
 			toIncr = 1;
 		}
 	}
+//	for(int i=0; i<strlen(input); i++){
+//		printf("Pos[%d]:%d\n",i,pos[i]);
+//	}
 	
 	if(choice == 1){
 		encr(input, rails, pos);

@@ -15,6 +15,7 @@ int mod5(int num){
 	return ((num%5)+5)%5;
 }
 
+// get char from the input key to add to the key matrix
 char get_char(char key[]){
 	if(cur_key>=strlen(key)){
 		return ' ';
@@ -148,8 +149,7 @@ int main(){
 				}
 			}
 		}
-		
-		
+
 		if(choice == 1) encr(a,b,pos);
 		else decr(a,b,pos);
 	}	
