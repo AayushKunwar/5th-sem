@@ -17,7 +17,7 @@ int main(){
 	}
 	for(int i=0; input[i]!='\0';i++){
 		output[i] = (input[i] -'a' + offset ) % 26 + 'a';
-		printf("output[%d]= %c\n",i,output[i]);
+		//printf("output[%d]= %c\n",i,output[i]);
 	}
 	printf("The output is %s",output);
 	return 0;	
