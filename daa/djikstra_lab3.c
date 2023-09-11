@@ -1,3 +1,6 @@
+/*
+list[] is array of edges, sort that and choose the smallest good edge
+*/
 #include<stdio.h>
 
 #define max_count 20

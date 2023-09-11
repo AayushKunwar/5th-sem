@@ -1,3 +1,7 @@
+/*
+	edge is a 2d array of edge weight
+	iterate from that
+*/
 #include<stdio.h>
 
 #define count 6 // no of vertices in graph
@@ -17,16 +21,18 @@ int main() {
 	// initialize vertice to -1
 	// -1 means not visited
 	for (int i = 0; i < 10; i++) v_vertic[i] = -1;
+
 	v_vertic[0] = 0;
 
-	// find the lowest edge
 	// go through all the vertices
 	for (int foo = 0; foo < count - 1; foo++) {
+		// find the lowest edge
 		// loop through the visited vertex
 		int low_edge = 10000;
 		int temp_vertix, temp_vertix_2;
-		for (int i = 0; i < count; i++) {
-			if (v_vertic[i] == -1) continue; // visited vertex test
+		for (int i = 0; i < count; i++) { // can this be improved or something?
+			// loop through vertex (i) and edge(curr_edge)
+			if (v_vertic[i] == -1) continue; // consider visited vertex only
 			// loop through the edges
 			for (int curr_edge = 0; curr_edge < count; curr_edge++) {
 				if (edge[i][curr_edge] < low_edge && edge[i][curr_edge] != -1) {

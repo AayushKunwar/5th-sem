@@ -1,3 +1,4 @@
+// add nodes to main_list, no need for graph
 #include<stdio.h>
 
 typedef struct node {
