@@ -33,6 +33,8 @@ int find_min() {
     }
     return curr_min;
 }
+
+// this for debug only
 void print_list() {
     for (int i = 0; i <= main_counter; i++) {
         if (main_list[i].avail) {
