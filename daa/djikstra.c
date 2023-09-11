@@ -63,9 +63,8 @@ int main() {
             printf("%s %d\n", list[low_idx].name, list[low_idx].weight);
         }
         // make sure it isnt considered next time
-        // or change the logic to remove this line
+        // or change the logic to remove this line (O(n^2))
         list[low_idx].weight = 1000;
-
     }
     return 0;
 }
