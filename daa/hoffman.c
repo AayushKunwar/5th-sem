@@ -3,14 +3,13 @@
 typedef struct node {
     char name;
     int weight;
-    int parent; // parent idx, couldve been a ptr
+    int parent; // parent idx inside the main_list
     int parent_code;
     int avail;
 } node;
 
 node main_list[20] = { 0 };
 int main_counter = -1;
-node* temp_list[20] = { 0 };
 
 int add_node(char name, int weight) {
     node temp;
@@ -72,7 +71,7 @@ int main() {
     }
 
     // print_list();
-    // now print the sheez
+    // now print the answer
     for (int i = 0; i < size; i++) {
         printf("%c->", main_list[i].name);
         print_parent(i);
