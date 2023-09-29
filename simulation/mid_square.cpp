@@ -30,14 +30,14 @@ int main(){
 	printf("digits: %d\n",n);
 	
 	if(n % 2 !=0){
-		printf("no of digits, must be even\n");
-		return 0;
+		printf("number of digits, must be even\n");
+		printf("Printing anyways\n");
 	}
 	
 	for(int i=0; i<10; i++){
 		input = input * input;
 		int input_sq = input;
 		input = get_middle(input,n);
-		printf("%d: %d : %d\n",i,input_sq,input);
+		printf("%d: %d \t: %d\n",i,input_sq,input);
 	}
 }
