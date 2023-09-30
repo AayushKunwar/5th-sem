@@ -1,0 +1,8 @@
+1.write a program to implement DES algorithm.
+X 2.write a program to compute b^n mod m using modular exponentiation algorithm.
+X 3.write a program to compute gcd of any two number using Euclidean Algorithm.
+X 4.write a program to find Euclers totient function of any number n.
+X 5.write a program to test prime number using format's theorem.
+6.write a program to implement RSA algorithm.
+7.write to implement diffie hellman key exchange algorithm
+Extra-> Extended Eucledian Algo
